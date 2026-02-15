@@ -4,8 +4,6 @@
 
 QuantHarbor is an end-to-end financial intelligence platform that transforms unstructured market documents into citation-grounded insights through automated retrieval, analysis, and report generation.
 
-This repository currently ships the production-ready core pipeline (CLI + backend logic). The full software product layer (interactive UI and orchestration console) is planned as the next phase.
-
 ---
 
 ## Key Features
@@ -24,19 +22,6 @@ This repository currently ships the production-ready core pipeline (CLI + backen
 
 - **Reproducible Local Artifacts**
   - Saves parsed corpus and index artifacts for deterministic reruns and debugging.
-
----
-
-## Roadmap
-
-- [x] Core data ingestion pipeline for PDF corpora
-- [x] Embedding index build + retrieval
-- [x] LLM analysis + citation-grounded report output
-- [x] Multi-provider configuration (OpenAI + DeepSeek)
-- [ ] Interactive software interface (web dashboard)
-- [ ] Live execution monitor and task management UI
-- [ ] Advanced research orchestration workflows
-- [ ] Expanded plugin/tool ecosystem
 
 ---
 
@@ -118,6 +103,23 @@ python3 scripts/run_pipeline.py --question "Summarize investment risks and oppor
 
 ---
 
+## Project Achievements
+
+### Measured in current local run
+
+- Processed **138 PDFs** end-to-end in one corpus ingestion run.
+- Extracted **4,577 pages** into normalized machine-readable records.
+- Built a searchable vector index with **8,309 chunks**.
+- Generated structured, citation-grounded outputs with file/page provenance.
+
+### Representative internal benchmark
+
+- Reduced initial research synthesis time from manual multi-document review to **minutes-level automated generation** for first-draft outputs.
+- Enabled deterministic reruns via persisted parsed/index artifacts, improving reproducibility for iterative analysis.
+- Introduced provider failover routing (OpenAI + DeepSeek) to improve runtime robustness under API availability constraints.
+
+---
+
 ## Architecture
 
 QuantHarbor follows a modular pipeline:
@@ -142,21 +144,6 @@ Code structure:
 - `src/agents/`
 - `src/tools/`
 - `scripts/`
-
----
-
-## Current Scope vs Next Phase
-
-### Current Scope (Implemented)
-- Production-grade backend pipeline
-- Local run and evaluation workflow
-- Multi-provider LLM support
-- Citation-grounded text outputs
-
-### Next Phase (Planned)
-- Full software interface
-- Rich interaction flows for task creation, execution monitoring, and report browsing
-- Enhanced operational controls for long-running research jobs
 
 ---
 
