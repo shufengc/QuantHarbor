@@ -1,0 +1,19 @@
+project_name: quant_integrated_project
+language: en
+
+paths:
+  project_root: /Users/shufengc/Desktop/Quant/quant_integrated_project
+  data_dir: /Users/shufengc/Desktop/Quant/quant_integrated_project/data
+  raw_pdf_dir: /Users/shufengc/Desktop/Quant/quant_integrated_project/data/raw_pdfs
+  parsed_dir: /Users/shufengc/Desktop/Quant/quant_integrated_project/data/parsed
+  index_dir: /Users/shufengc/Desktop/Quant/quant_integrated_project/artifacts/rag_index
+
+artifacts:
+  rag_index_dir: /Users/shufengc/Desktop/Quant/quant_integrated_project/artifacts/rag_index
+  retrieval_top_k: 5
+  chunk_size: 1000
+  chunk_overlap: 150
+
+provider:
+  primary: openai
+  fallback: deepseek

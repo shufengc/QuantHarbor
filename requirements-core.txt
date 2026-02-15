@@ -1,0 +1,7 @@
+openai
+python-dotenv
+PyYAML
+numpy
+requests
+tqdm
+pypdf

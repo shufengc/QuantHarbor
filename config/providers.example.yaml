@@ -1,0 +1,9 @@
+providers:
+  openai:
+    chat_model: gpt-4o-mini
+    embedding_model: text-embedding-3-small
+    base_url: https://api.openai.com/v1
+  deepseek:
+    chat_model: deepseek-chat
+    embedding_model: ""
+    base_url: https://api.deepseek.com/v1

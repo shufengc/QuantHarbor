@@ -1,0 +1,40 @@
+# Local secrets
+.env
+.env.local
+.env.*.local
+
+# Python cache/build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pycache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environment
+.venv/
+venv/
+
+# Local artifacts
+artifacts/
+data/raw_pdfs/
+data/parsed/
+data/ocr_text/
+logs/
+tmp/
+
+# Notebook/cache metadata
+.ipynb_checkpoints/
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
