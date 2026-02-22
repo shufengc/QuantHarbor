@@ -1,0 +1,48 @@
+target_name: "Apple Inc."
+stock_code: "AAPL"
+target_type: 'financial_company'  # financial_company, macro, industry, general
+output_dir: "./outputs/exp-v1"
+language: 'en' # zh,en
+reference_doc_path: 'src/template/report_template.docx' # used for docx style
+outline_template_path: 'src/template/company_outline.md' # used for outline style
+
+custom_collect_tasks:
+  - "Balance sheet, income statement, and cash flow statement"
+  - "Basic stock information and share price data"
+  - "Shareholding structure"
+  - "Analyst investment ratings"
+  - "Price-to-sales ratio, ROE, PE ratio, PB ratio"
+  - "Key competitor landscape"
+  - "Index data: S&P 500, Dow Jones, Nasdaq Composite, Russell 2000"
+custom_analysis_tasks:
+  - "Review company history, key milestones, and current core business segments"
+  - "Analyze founding team and executive backgrounds; review equity structure and major shareholders"
+  - "Summarize pre-IPO financing rounds, amounts, and key investors"
+  - "Analyze historical revenue trends, segment mix shifts, and growth drivers"
+  - "Evaluate profitability (ROE, gross margin, net margin) and operational efficiency (turnover ratios)"
+  - "Assess debt capacity (debt-to-asset ratio, current ratio) and cash flow health"
+  - "Conduct peer comparison analysis; evaluate market position and core competitive advantages"
+  - "Review 5-year stock price and volume history; analyze impact of key events on share price"
+  - "Compile historical financial statements; forecast core financials for next two years with valuation analysis"
+
+use_collect_data_cache: True
+use_analysis_cache: True
+use_report_outline_cache: True
+use_full_report_cache: True
+use_post_process_cache: True
+
+# load in environment variables
+llm_config_list:
+  - model_name: "${DS_MODEL_NAME}"
+    api_key: "${DS_API_KEY}"
+    base_url: "${DS_BASE_URL}"
+    generation_params:
+      temperature: 0.7
+      max_tokens: 32768
+      top_p: 0.95
+  - model_name: "${EMBEDDING_MODEL_NAME}"
+    api_key: "${EMBEDDING_API_KEY}"
+    base_url: "${EMBEDDING_BASE_URL}"
+  - model_name: "${VLM_MODEL_NAME}"
+    api_key: "${VLM_API_KEY}"
+    base_url: "${VLM_BASE_URL}"

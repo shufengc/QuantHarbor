@@ -1,27 +1,71 @@
-# QuantHarbor
+<div align="center">
 
-**AI-Powered Financial Research Platform**
+<img src="assets/quantharbor-logo.png" width="400">
 
-QuantHarbor is an end-to-end financial intelligence platform that transforms unstructured market documents into citation-grounded insights through automated retrieval, analysis, and report generation.
-
+QuantHarbor
 ---
+
+*AI-Powered Financial Research Platform — From data to insights, fully automated.*
+
+<p>
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
+</p>
+
+**QuantHarbor** is an end-to-end financial intelligence platform that transforms unstructured market documents into citation-grounded insights through automated retrieval, analysis, and report generation. It combines a multi-agent research system with a document-to-insight RAG pipeline, all wrapped in an interactive web demo UI.
+
+</div>
+
+## Demo
+
+https://github.com/user-attachments/assets/41963369-3dd4-4dfd-ad95-ef95cd092ebb
+
+<p align="center">
+  <i>Easy-to-use UI demo: one ticker, automated research, publish-ready report.</i>
+</p>
+
+## Table of Contents
+- [Key Features](#key-features)
+- [Quick Start](#quick-start)
+- [Result Examples](#result-examples)
+- [Architecture](#architecture)
+- [Project Achievements](#project-achievements)
+- [Advanced Usage](#advanced-usage)
+- [License](#license)
+- [Placeholder Assets](#placeholder-assets)
+- [Acknowledgments](#acknowledgments)
 
 ## Key Features
 
-- **Document-to-Insight Pipeline**
-  - Ingests large PDF corpora and converts them into searchable research assets.
+* **Document-to-Insight RAG Pipeline**
+    Ingests large PDF corpora, builds searchable vector indexes, and produces citation-grounded research output with file/page provenance and similarity scores.
 
-- **Retrieval-Augmented Intelligence**
-  - Combines semantic retrieval with LLM reasoning for evidence-grounded output.
+* **Multi-Agent Financial Research**
+    Four specialized agents (Data Collector, Data Analyzer, Report Generator, Deep Search) collaborate through a shared variable space using the Code Agent with Variable Memory (CAVM) architecture.
 
-- **Citation-First Reporting**
-  - Returns structured analysis with source files, page references, and similarity scores.
+* **Professional Report Generation**
+    One-click generation of 20,000+ word financial reports with automated charting. Reports are exported as Markdown, DOCX, and PDF with publication-grade formatting via Pandoc.
 
-- **Provider Flexibility**
-  - Supports OpenAI and DeepSeek with configurable primary/fallback routing.
+* **Automated Charting with VLM Feedback**
+    Built-in vision agents automatically correct chart issues (missing legends, wrong scales, low information density) through iterative visual feedback loops.
 
-- **Reproducible Local Artifacts**
-  - Saves parsed corpus and index artifacts for deterministic reruns and debugging.
+* **Deep Research with Evidence Tracing**
+    Every conclusion is derived from a transparent Chain-of-Analysis, with strict citations linking back to original data sources for verifiable insights.
+
+* **Provider Flexibility**
+    Supports OpenAI and DeepSeek with configurable primary/fallback routing. Compatible with aggregator endpoints like OpenRouter.
+
+* **Interactive Web Demo UI**
+    Full-stack web application with React frontend (Ant Design) and FastAPI backend. Includes system configuration, task management, real-time execution monitoring via WebSocket, and report browsing/download.
+
+* **Checkpoint & Resume**
+    Long-running research tasks can be paused and resumed from the last checkpoint, with full agent state preservation.
+
+* **Reproducible Local Artifacts**
+    Saves parsed corpus and index artifacts for deterministic reruns and debugging.
 
 ---
 
@@ -29,65 +73,202 @@ QuantHarbor is an end-to-end financial intelligence platform that transforms uns
 
 ### Prerequisites
 
-- Python 3.9+
-- API key for at least one provider:
-  - OpenAI and/or DeepSeek
+- Python 3.10+
+- Pandoc (for polished DOCX/PDF export)
+- Node.js (optional, for the web UI)
+- API keys for your LLM stack (LLM, VLM, Embedding, Search)
 
 ### Installation
 
 ```bash
-cd /Users/shufengc/Desktop/Quant/quant_integrated_project
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/quant_integrated_project.git
+cd quant_integrated_project
+
+# Create virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip
-pip install -r requirements-core.txt
-cp .env.example .env
+
+# Install Python dependencies
+pip install -r requirements.txt
+```
+
+Install Pandoc (recommended):
+
+```bash
+# macOS
+brew install pandoc
+
+# Linux
+sudo apt-get install pandoc
+```
+
+Build the web UI (optional):
+
+```bash
+cd demo/frontend
+npm install
+npm run build
 ```
 
 ### Configuration
 
-Fill `.env` with real keys:
+QuantHarbor uses a two-layer configuration:
 
+1) `.env` — model endpoints & API keys
 ```bash
-PRIMARY_PROVIDER=openai
-FALLBACK_PROVIDER=deepseek
-
-OPENAI_API_KEY=<your-openai-key>
-DEEPSEEK_API_KEY=<your-deepseek-key>
+cp .env.example .env
+# Fill in your API keys and model endpoints
 ```
 
-Provider modes:
-- **OpenAI-only**: `PRIMARY_PROVIDER=openai`, `FALLBACK_PROVIDER=openai`
-- **DeepSeek-only**: `PRIMARY_PROVIDER=deepseek`, `FALLBACK_PROVIDER=deepseek`
-- **Auto-fallback**: `PRIMARY_PROVIDER=openai`, `FALLBACK_PROVIDER=deepseek`
+2) `my_config.yaml` — research target & tasks
+```yaml
+target_name: "Apple Inc."
+stock_code: "AAPL"
+target_type: "financial_company"  # financial_company | macro | industry | general
+output_dir: "./outputs/my-research"
+language: "en"                    # en or zh
+```
+
+### Run QuantHarbor
+
+**CLI (full pipeline)**
+```bash
+python run_report.py
+```
+
+**Web Demo**
+```bash
+# Backend
+cd demo/backend && python app.py
+
+# Frontend (in a separate terminal)
+cd demo/frontend && npm run dev
+```
+Open http://localhost:3000
+
+**RAG Pipeline (document-to-insight)**
+```bash
+# 1) Provider smoke test
+python3 scripts/smoke_test_providers.py --provider auto
+
+# 2) Ingest PDF corpus
+python3 scripts/ingest_pdfs.py --source-dir "./data/raw_pdfs" --recursive true
+
+# 3) Build retrieval index
+python3 scripts/build_index.py
+
+# 4) Generate report output
+python3 scripts/run_pipeline.py --question "Summarize investment risks and opportunities."
+```
 
 ---
 
-## Run QuantHarbor
+## Result Examples
 
-### 1) Provider smoke test
+<div align="center">
 
-```bash
-python3 scripts/smoke_test_providers.py --provider auto
+| | |
+|:---:|:---:|
+| <img src="assets/example1.png" width="450" alt="Core revenue analysis"> | <img src="assets/example2.png" width="450" alt="Multi-dimensional financial data"> |
+| **Core revenue analysis** | **Multi-dimensional financial data** |
+| <img src="assets/example3.png" width="450" alt="Publication-grade report"> | <img src="assets/example4.png" width="450" alt="Chart-grounded analysis"> |
+| **Publication-grade report** | **Chart-grounded analysis** |
+
+</div>
+
+Full sample reports live in `assets/example_reports`.
+
+![Full report preview](/assets/example5.png)
+
+---
+
+## Architecture
+
+<p align="center">
+  <img src="assets/architecture.jpg" alt="QuantHarbor Architecture" width="800"/>
+</p>
+
+QuantHarbor combines two complementary pipelines:
+
+### Multi-Agent Research Pipeline (Web Demo)
+
+A multi-stage, memory-centric pipeline: Data Collection, Analysis + VLM chart refinement, Report drafting & polishing, Rendering. Each agent runs in a shared variable space with resumable checkpoints.
+
+| Agent | Purpose | Key Inputs | Outputs |
+|-------|---------|------------|---------|
+| Data Collector | Route and gather structured/unstructured data | Task, ticker/market | Normalized datasets in memory |
+| Deep Search Agent | Multi-hop web search + content fetch with source validation | Task, query | Search snippets + crawled pages with citations |
+| Data Analyzer | Code-first analysis, charting, VLM critique | Task, collected data | Analysis report, charts + captions |
+| Report Generator | Outline, sections, polish, cover/reference, DOCX/PDF | Task, analysis/memory | Publication-ready report (MD/DOCX/PDF) |
+
+### RAG Pipeline (CLI)
+
+A modular document-to-insight pipeline:
+
+1. **Ingestion** — Parse PDF pages and detect low-extraction pages for OCR follow-up
+2. **Indexing** — Chunk text and build embedding index
+3. **Retrieval** — Retrieve top-k relevant chunks per query via cosine similarity
+4. **Reasoning** — Analyze evidence with LLMs under provider routing
+5. **Report Generation** — Return concise, citation-grounded research output
+
+### Code Structure
+
+```
+quant_integrated_project/
+├── src/                    # Multi-agent system (CAVM architecture)
+│   ├── agents/             # Data Collector, Analyzer, Report Generator, Search Agent
+│   ├── config/             # Configuration management
+│   ├── template/           # Report outline templates
+│   ├── tools/              # Financial, macro, industry, web tools
+│   └── utils/              # LLM interface, logging, prompt loader
+├── src_rag/                # RAG pipeline modules
+│   ├── agents/             # Planner, Retriever, Analyst, Writer agents
+│   ├── core/               # LLM client, embeddings, vector index, pipeline
+│   └── tools/              # PDF ingest, web search
+├── demo/                   # Full-stack web demo
+│   ├── backend/            # FastAPI app with WebSocket logs
+│   └── frontend/           # React SPA (Ant Design)
+├── scripts/                # CLI pipeline scripts
+├── assets/                 # Images, videos, example reports
+├── data/                   # PDF corpus and parsed pages
+├── artifacts/              # Vector index (embeddings + metadata)
+├── config/                 # RAG pipeline configuration
+└── docs/                   # Advanced usage documentation
 ```
 
-### 2) Ingest corpus
+---
 
-```bash
-python3 scripts/ingest_pdfs.py --source-dir "/Users/shufengc/Desktop/Quant" --recursive true
-```
+## Project Achievements
 
-### 3) Build retrieval index
+### Measured in Current Local Run
 
-```bash
-python3 scripts/build_index.py
-```
+- Processed **138 PDFs** end-to-end in one corpus ingestion run.
+- Extracted **4,577 pages** into normalized machine-readable records.
+- Built a searchable vector index with **8,309 chunks**.
+- Generated structured, citation-grounded outputs with file/page provenance.
 
-### 4) Generate report output
+### Representative Internal Benchmark
 
-```bash
-python3 scripts/run_pipeline.py --question "Summarize investment risks and opportunities."
-```
+- Reduced initial research synthesis time from manual multi-document review to **minutes-level automated generation** for first-draft outputs.
+- Enabled deterministic reruns via persisted parsed/index artifacts, improving reproducibility for iterative analysis.
+- Introduced provider failover routing (OpenAI + DeepSeek) to improve runtime robustness under API availability constraints.
+
+---
+
+## Advanced Usage
+
+See **[docs/ADVANCED_USAGE.md](docs/ADVANCED_USAGE.md)** for comprehensive technical documentation including:
+
+- API keys & model configuration
+- YAML config file reference
+- Prompt system & customization
+- Custom outlines & report templates
+- Chart styling & color palettes
+- Adding custom tools and agents
+- Checkpoint & resume system
+- Complete code examples
 
 ---
 
@@ -96,59 +277,52 @@ python3 scripts/run_pipeline.py --question "Summarize investment risks and oppor
 - Parsed pages: `data/parsed/pages.json`
 - Index metadata: `artifacts/rag_index/metadata.json`
 - Index embeddings: `artifacts/rag_index/embeddings.npy`
-- Runtime response: structured JSON with:
-  - `analysis`
-  - `answer`
-  - `citations`
+- Generated reports: `outputs/<target_name>/` (MD, DOCX, PDF)
+- Agent logs: `outputs/<target_name>/logs/`
 
 ---
 
-## Project Achievements
+## License
 
-### Measured in current local run
-
-- Processed **138 PDFs** end-to-end in one corpus ingestion run.
-- Extracted **4,577 pages** into normalized machine-readable records.
-- Built a searchable vector index with **8,309 chunks**.
-- Generated structured, citation-grounded outputs with file/page provenance.
-
-### Representative internal benchmark
-
-- Reduced initial research synthesis time from manual multi-document review to **minutes-level automated generation** for first-draft outputs.
-- Enabled deterministic reruns via persisted parsed/index artifacts, improving reproducibility for iterative analysis.
-- Introduced provider failover routing (OpenAI + DeepSeek) to improve runtime robustness under API availability constraints.
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Architecture
+## Placeholder Assets
 
-QuantHarbor follows a modular pipeline:
+The following UI images and assets are **temporary placeholders** included for demonstration purposes. Replace them with your own production assets before release:
 
-1. **Ingestion**
-   - Parse PDF pages and detect low-extraction pages for OCR follow-up.
-2. **Indexing**
-   - Chunk text and build embedding index.
-3. **Retrieval**
-   - Retrieve top-k relevant chunks per query.
-4. **Reasoning**
-   - Analyze evidence with LLMs under provider routing.
-5. **Report Generation**
-   - Return concise, citation-grounded research output.
+| Asset | Location | How to Replace |
+|-------|----------|----------------|
+| Logo files | `assets/quantharbor-logo*.png`, `demo/frontend/public/quantharbor-logo*.png` | Replace with your own brand logo in matching sizes. |
+| Architecture diagram | `assets/architecture.jpg` | Replace with a custom diagram reflecting your specific system. |
+| Example screenshots | `assets/example1.png` through `assets/example5.png` | Run the system, generate reports, and capture your own screenshots. |
+| Evaluation charts | `assets/evaluation_result_1.jpg`, `assets/evaluation_result_2.jpg` | Replace with your own benchmark results or remove. |
+| Demo video | `assets/demo.mp4` | Record a new demo video using the web UI. |
+| Example reports | `assets/example_reports/` | Replace with your own generated reports. |
 
-Code structure:
+**To replace placeholder assets:**
 
-- `src/core/llm_client.py`
-- `src/core/embeddings.py`
-- `src/core/vector_index.py`
-- `src/core/report_pipeline.py`
-- `src/agents/`
-- `src/tools/`
-- `scripts/`
+1. Design your own logo and save it as `assets/quantharbor-logo.png` (and variants).
+2. Copy the same logo files to `demo/frontend/public/`.
+3. Run the web demo, generate reports, and take your own screenshots.
+4. Record a new demo video using the web UI.
+5. Replace `assets/architecture.jpg` with a diagram of your customized architecture.
 
 ---
 
 ## Documentation
 
-- API setup: `docs/api_setup_openai_deepseek.md`
-- OCR and extraction notes: `docs/pdf_coverage_and_ocr.md`
-- Migration notes: `docs/migration_notes.md`
+- Advanced usage: [docs/ADVANCED_USAGE.md](docs/ADVANCED_USAGE.md)
+- API setup: [docs/api_setup_openai_deepseek.md](docs/api_setup_openai_deepseek.md)
+- OCR and extraction notes: [docs/pdf_coverage_and_ocr.md](docs/pdf_coverage_and_ocr.md)
+- Migration notes: [docs/migration_notes.md](docs/migration_notes.md)
+
+---
+
+## Acknowledgments
+
+- [AkShare](https://akshare.akfamily.xyz/) — Financial data APIs.
+- [eFinance](https://github.com/mpquant/efinance) — Stock data.
+- [Crawl4AI](https://github.com/unclecode/crawl4ai) — Web crawling.
+- [Ant Design](https://ant.design/) — React UI component library.

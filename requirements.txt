@@ -1,0 +1,41 @@
+# ===== Core =====
+openai
+python-dotenv
+PyYAML
+numpy>=1.24.0
+pandas>=2.0.0
+requests
+tqdm
+
+# ===== NLP & Data =====
+jieba>=0.42.0
+json_repair
+dill
+
+# ===== Financial Data APIs =====
+akshare
+efinance
+
+# ===== Web Scraping & Search =====
+playwright
+bs4
+crawl4ai
+fake_useragent
+browser-use
+
+# ===== Visualization =====
+matplotlib
+seaborn
+
+# ===== Document Processing =====
+pypdf
+pdfplumber
+docx2pdf
+python-docx
+
+# ===== Web Demo (FastAPI Backend) =====
+fastapi
+uvicorn
+websockets
+pydantic
+python-multipart
