@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/quantharbor-logo.png" width="400">
+
 QuantHarbor
 ---
 
