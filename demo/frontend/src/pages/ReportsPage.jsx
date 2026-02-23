@@ -203,7 +203,7 @@ function ReportsPage() {
                             type="text"
                             icon={<DownloadOutlined />}
                             onClick={() => handleDownload(record)}
-                            style={{ color: '#dc2626' }}
+                            style={{ color: '#1d4ed8' }}
                         />
                     </Tooltip>
                 </Space>
@@ -244,7 +244,7 @@ function ReportsPage() {
                     <Card size="small" style={{ minWidth: '150px' }}>
                         <Space direction="vertical" align="center" style={{ width: '100%' }}>
                             <Text type="secondary">{t('reports.totalReports')}</Text>
-                            <Title level={2} style={{ margin: 0, color: '#dc2626' }}>
+                            <Title level={2} style={{ margin: 0, color: '#1d4ed8' }}>
                                 {reports.length}
                             </Title>
                         </Space>
@@ -347,7 +347,7 @@ function ReportsPage() {
                 .markdown-preview h1 {
                     font-size: 28px;
                     font-weight: 700;
-                    border-bottom: 2px solid #dc2626;
+                    border-bottom: 2px solid #1d4ed8;
                     padding-bottom: 8px;
                     margin-top: 24px;
                     margin-bottom: 16px;
@@ -358,7 +358,7 @@ function ReportsPage() {
                     font-weight: 600;
                     margin-top: 20px;
                     margin-bottom: 12px;
-                    color: #dc2626;
+                    color: #1d4ed8;
                 }
                 .markdown-preview h3 {
                     font-size: 18px;
@@ -389,20 +389,20 @@ function ReportsPage() {
                     text-align: left;
                 }
                 .markdown-preview th {
-                    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+                    background: linear-gradient(135deg, #eff6ff 0%, #fff 100%);
                     font-weight: 600;
-                    color: #dc2626;
+                    color: #1d4ed8;
                 }
                 .markdown-preview tr:nth-child(even) {
                     background: #fafafa;
                 }
                 .markdown-preview blockquote {
-                    border-left: 4px solid #dc2626;
+                    border-left: 4px solid #1d4ed8;
                     padding-left: 16px;
                     margin: 16px 0;
                     color: #666;
                     font-style: italic;
-                    background: #fef2f2;
+                    background: #eff6ff;
                     padding: 12px 16px;
                     border-radius: 0 8px 8px 0;
                 }

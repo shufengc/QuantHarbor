@@ -218,8 +218,8 @@ function ConfigPage() {
                             onClick={handleUpdateConfig}
                             loading={loading}
                             style={{
-                                background: '#dc2626',
-                                borderColor: '#dc2626'
+                                background: '#1d4ed8',
+                                borderColor: '#1d4ed8'
                             }}
                         >
                             {t('config.saveConfig')}
@@ -353,7 +353,7 @@ function ConfigPage() {
                                 >
                                     <Input
                                         placeholder="deepseek-chat"
-                                        style={{ borderColor: '#fecaca' }}
+                                        style={{ borderColor: '#93c5fd' }}
                                     />
                                 </Form.Item>
                             </Col>
@@ -365,7 +365,7 @@ function ConfigPage() {
                                 >
                                     <Input
                                         placeholder="gpt-4-vision"
-                                        style={{ borderColor: '#fecaca' }}
+                                        style={{ borderColor: '#93c5fd' }}
                                     />
                                 </Form.Item>
                             </Col>
@@ -377,7 +377,7 @@ function ConfigPage() {
                                 >
                                     <Input
                                         placeholder="text-embedding-ada-002"
-                                        style={{ borderColor: '#fecaca' }}
+                                        style={{ borderColor: '#93c5fd' }}
                                     />
                                 </Form.Item>
                             </Col>

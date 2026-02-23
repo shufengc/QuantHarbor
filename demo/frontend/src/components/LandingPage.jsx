@@ -62,7 +62,7 @@ function LandingPage({ onEnter }) {
     return (
         <div style={{
             minHeight: '100vh',
-            background: '#b91c1c',
+            background: '#0c1929',
             position: 'relative',
             overflow: 'hidden',
             display: 'flex',
@@ -231,7 +231,7 @@ function LandingPage({ onEnter }) {
                             }}
                             onError={(e) => {
                                 e.target.onerror = null;
-                                e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23fff"/><text x="50" y="65" text-anchor="middle" font-size="50" fill="%23dc2626" font-weight="bold">Q</text></svg>';
+                                e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23fff"/><text x="50" y="65" text-anchor="middle" font-size="50" fill="%231d4ed8" font-weight="bold">Q</text></svg>';
                             }}
                         />
                     </div>
@@ -368,7 +368,7 @@ function LandingPage({ onEnter }) {
                             borderRadius: '28px',
                             background: '#ffffff',
                             border: 'none',
-                            color: '#dc2626',
+                            color: '#1d4ed8',
                             boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
                             transition: 'background 0.2s ease'
                         }}

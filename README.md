@@ -19,7 +19,24 @@ QuantHarbor
 
 </div>
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/quant-front-page.png" alt="QuantHarbor Landing Page" width="800"/>
+</p>
+<p align="center"><em>Landing Page — Professional entry point with feature highlights</em></p>
+
+<br/>
+
+<p align="center">
+  <img src="assets/quant-main-page.png" alt="QuantHarbor Main Interface" width="800"/>
+</p>
+<p align="center"><em>Main Interface — System configuration, task management, and execution monitoring</em></p>
+
+---
+
 ## Table of Contents
+- [Screenshots](#screenshots)
 - [Key Features](#key-features)
 - [Quick Start](#quick-start)
 - [Architecture](#architecture)

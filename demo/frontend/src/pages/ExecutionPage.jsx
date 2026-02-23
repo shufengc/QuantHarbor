@@ -223,7 +223,7 @@ function ExecutionPage() {
     const getStatusIcon = useCallback((status) => {
         switch (status) {
             case 'running':
-                return <SyncOutlined spin style={{ color: '#dc2626' }} />
+                return <SyncOutlined spin style={{ color: '#1d4ed8' }} />
             case 'completed':
                 return <CheckCircleOutlined style={{ color: '#16a34a' }} />
             case 'pending':
@@ -304,7 +304,7 @@ function ExecutionPage() {
                     <Progress
                         percent={progress}
                         status={isRunning ? 'active' : progress === 100 ? 'success' : 'normal'}
-                        strokeColor="#dc2626"
+                        strokeColor="#1d4ed8"
                     />
                     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                         <div style={{ textAlign: 'center' }}>
@@ -314,7 +314,7 @@ function ExecutionPage() {
                             <Text type="secondary">{t('execution.status.pending')}</Text>
                         </div>
                         <div style={{ textAlign: 'center' }}>
-                            <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#dc2626' }}>
+                            <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1d4ed8' }}>
                                 {statusCounts.running}
                             </div>
                             <Text type="secondary">{t('execution.status.running')}</Text>
@@ -589,8 +589,8 @@ function ExecutionPage() {
                                     onClick={() => handleStart(false)}
                                     loading={loading}
                                     style={{
-                                        background: '#dc2626',
-                                        borderColor: '#dc2626'
+                                        background: '#1d4ed8',
+                                        borderColor: '#1d4ed8'
                                     }}
                                 >
                                     {t('execution.start')}

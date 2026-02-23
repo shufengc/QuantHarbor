@@ -188,18 +188,18 @@ function TasksPage() {
             style={{
                 marginBottom: 12,
                 borderRadius: 12,
-                boxShadow: '0 2px 12px rgba(220, 38, 38, 0.08)',
+                boxShadow: '0 2px 12px rgba(29, 78, 216, 0.08)',
                 transition: 'all 0.3s',
                 cursor: 'pointer',
-                border: `1px solid ${type === 'collect' ? 'rgba(220, 38, 38, 0.2)' : 'rgba(234, 88, 12, 0.2)'}`,
-                background: type === 'collect' ? 'rgba(254, 226, 226, 0.3)' : 'rgba(255, 237, 213, 0.3)'
+                border: `1px solid ${type === 'collect' ? 'rgba(29, 78, 216, 0.2)' : 'rgba(8, 145, 178, 0.2)'}`,
+                background: type === 'collect' ? 'rgba(219, 234, 254, 0.3)' : 'rgba(207, 250, 254, 0.3)'
             }}
             hoverable
         >
             <Space direction="vertical" style={{ width: '100%' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Space>
-                        <Tag color={type === 'collect' ? 'red' : 'orange'}>
+                        <Tag color={type === 'collect' ? 'blue' : 'cyan'}>
                             {type === 'collect' ? t('tasks.dataCollect') : t('tasks.dataAnalysis')}
                         </Tag>
                         <Text code>{task.id}</Text>
@@ -241,8 +241,8 @@ function TasksPage() {
                             onClick={handleUpdateTasks}
                             loading={loading}
                             style={{
-                                background: '#dc2626',
-                                borderColor: '#dc2626'
+                                background: '#1d4ed8',
+                                borderColor: '#1d4ed8'
                             }}
                         >
                             {t('tasks.saveTasks')}
@@ -256,9 +256,9 @@ function TasksPage() {
                         <Card
                             title={
                                 <Space>
-                                    <DatabaseOutlined style={{ color: '#dc2626' }} />
+                                    <DatabaseOutlined style={{ color: '#1d4ed8' }} />
                                     <span>{t('tasks.collectTasks')}</span>
-                                    <Tag color="red">{collectTasks.length}</Tag>
+                                    <Tag color="blue">{collectTasks.length}</Tag>
                                 </Space>
                             }
                             extra={
@@ -268,8 +268,8 @@ function TasksPage() {
                                     icon={<PlusOutlined />}
                                     onClick={() => showAddTaskModal('collect')}
                                     style={{
-                                        background: '#dc2626',
-                                        borderColor: '#dc2626'
+                                        background: '#1d4ed8',
+                                        borderColor: '#1d4ed8'
                                     }}
                                 >
                                     {t('tasks.addTask')}
@@ -295,9 +295,9 @@ function TasksPage() {
                         <Card
                             title={
                                 <Space>
-                                    <BarChartOutlined style={{ color: '#ea580c' }} />
+                                    <BarChartOutlined style={{ color: '#0891b2' }} />
                                     <span>{t('tasks.analysisTasks')}</span>
-                                    <Tag color="orange">{analysisTasks.length}</Tag>
+                                    <Tag color="cyan">{analysisTasks.length}</Tag>
                                 </Space>
                             }
                             extra={
@@ -307,8 +307,8 @@ function TasksPage() {
                                     icon={<PlusOutlined />}
                                     onClick={() => showAddTaskModal('analyze')}
                                     style={{
-                                        background: '#ea580c',
-                                        borderColor: '#ea580c'
+                                        background: '#0891b2',
+                                        borderColor: '#0891b2'
                                     }}
                                 >
                                     {t('tasks.addTask')}
@@ -415,8 +415,8 @@ function TasksPage() {
                                 title={
                                     <Space>
                                         <Text strong>{config.name}</Text>
-                                        <Tag color="red">{t('tasks.loadTasksModal.collectCount')}: {config.collect_count}</Tag>
-                                        <Tag color="orange">{t('tasks.loadTasksModal.analysisCount')}: {config.analysis_count}</Tag>
+                                        <Tag color="blue">{t('tasks.loadTasksModal.collectCount')}: {config.collect_count}</Tag>
+                                        <Tag color="cyan">{t('tasks.loadTasksModal.analysisCount')}: {config.analysis_count}</Tag>
                                     </Space>
                                 }
                                 description={

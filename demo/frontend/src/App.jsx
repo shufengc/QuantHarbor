@@ -70,7 +70,7 @@ function App() {
   return (
     <Layout style={{ minHeight: '100vh', background: 'transparent' }}>
       <Header style={{
-        background: '#dc2626',
+        background: '#1d4ed8',
         padding: '0 32px',
         display: 'flex',
         alignItems: 'center',
@@ -142,7 +142,7 @@ function App() {
               }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23fff" rx="20"/><text x="50" y="60" text-anchor="middle" dominant-baseline="middle" font-size="50" fill="%23dc2626" font-weight="bold">Q</text></svg>';
+                e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23fff" rx="20"/><text x="50" y="60" text-anchor="middle" dominant-baseline="middle" font-size="50" fill="%231d4ed8" font-weight="bold">Q</text></svg>';
               }}
             />
 
@@ -202,8 +202,8 @@ function App() {
             background: '#fafafa'
           }}>
             <Space>
-              <DashboardOutlined style={{ fontSize: '20px', color: '#dc2626' }} />
-              <Text strong style={{ fontSize: '16px', color: '#dc2626' }}>
+              <DashboardOutlined style={{ fontSize: '20px', color: '#1d4ed8' }} />
+              <Text strong style={{ fontSize: '16px', color: '#1d4ed8' }}>
                 {t('header.controlPanel')}
               </Text>
             </Space>
