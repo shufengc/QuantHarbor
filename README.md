@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="assets/quantharbor-logo.png" width="400">
-
 QuantHarbor
 ---
 
@@ -9,7 +7,7 @@ QuantHarbor
 
 <p>
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
@@ -19,23 +17,13 @@ QuantHarbor
 
 </div>
 
-## Demo
-
-https://github.com/user-attachments/assets/41963369-3dd4-4dfd-ad95-ef95cd092ebb
-
-<p align="center">
-  <i>Easy-to-use UI demo: one ticker, automated research, publish-ready report.</i>
-</p>
-
 ## Table of Contents
 - [Key Features](#key-features)
 - [Quick Start](#quick-start)
-- [Result Examples](#result-examples)
 - [Architecture](#architecture)
 - [Project Achievements](#project-achievements)
 - [Advanced Usage](#advanced-usage)
 - [License](#license)
-- [Placeholder Assets](#placeholder-assets)
 - [Acknowledgments](#acknowledgments)
 
 ## Key Features
@@ -165,25 +153,6 @@ python3 scripts/run_pipeline.py --question "Summarize investment risks and oppor
 
 ---
 
-## Result Examples
-
-<div align="center">
-
-| | |
-|:---:|:---:|
-| <img src="assets/example1.png" width="450" alt="Core revenue analysis"> | <img src="assets/example2.png" width="450" alt="Multi-dimensional financial data"> |
-| **Core revenue analysis** | **Multi-dimensional financial data** |
-| <img src="assets/example3.png" width="450" alt="Publication-grade report"> | <img src="assets/example4.png" width="450" alt="Chart-grounded analysis"> |
-| **Publication-grade report** | **Chart-grounded analysis** |
-
-</div>
-
-Full sample reports live in `assets/example_reports`.
-
-![Full report preview](/assets/example5.png)
-
----
-
 ## Architecture
 
 <p align="center">
@@ -284,30 +253,7 @@ See **[docs/ADVANCED_USAGE.md](docs/ADVANCED_USAGE.md)** for comprehensive techn
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Placeholder Assets
-
-The following UI images and assets are **temporary placeholders** included for demonstration purposes. Replace them with your own production assets before release:
-
-| Asset | Location | How to Replace |
-|-------|----------|----------------|
-| Logo files | `assets/quantharbor-logo*.png`, `demo/frontend/public/quantharbor-logo*.png` | Replace with your own brand logo in matching sizes. |
-| Architecture diagram | `assets/architecture.jpg` | Replace with a custom diagram reflecting your specific system. |
-| Example screenshots | `assets/example1.png` through `assets/example5.png` | Run the system, generate reports, and capture your own screenshots. |
-| Evaluation charts | `assets/evaluation_result_1.jpg`, `assets/evaluation_result_2.jpg` | Replace with your own benchmark results or remove. |
-| Demo video | `assets/demo.mp4` | Record a new demo video using the web UI. |
-| Example reports | `assets/example_reports/` | Replace with your own generated reports. |
-
-**To replace placeholder assets:**
-
-1. Design your own logo and save it as `assets/quantharbor-logo.png` (and variants).
-2. Copy the same logo files to `demo/frontend/public/`.
-3. Run the web demo, generate reports, and take your own screenshots.
-4. Record a new demo video using the web UI.
-5. Replace `assets/architecture.jpg` with a diagram of your customized architecture.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
 ---
 
